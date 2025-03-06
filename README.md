@@ -13,5 +13,10 @@
 6. `yarn add @types/node -D` for `process` modules
 7. `yarn add solc@0.8.15` for solc - Solidity compiler
 
+### Compilation
+```shell
+solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol
+```
+
 
 Last but not the least, follow [Patrick's typescript repo](https://github.com/PatrickAlphaC/ethers-simple-storage-fcc/tree/typescript) for this project.
