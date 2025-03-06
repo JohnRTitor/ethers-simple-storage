@@ -8,6 +8,15 @@
   packages = [ pkgs.git ];
 
   # https://devenv.sh/languages/
+  # Provides `tsc`, `tsc test.ts` compiles TypeScript into JavaScript
+  # You can now use `node test.js` to run the compiled JavaScript file
+  languages.typescript.enable = true;
+  # Deno is alternative runtime for JavaScript and TypeScript
+  # I prefer to use it
+  # Just use `deno test.ts` to run the TypeScript file natively
+  languages.deno.enable = true;
+
+  # Enables node and javascript support!
   languages.javascript = {
     enable = true;
     npm.enable = true;
