@@ -29,8 +29,21 @@ async function main(): Promise<void> {
   console.log("Deploying, please wait...");
   // Wait for contract to be deployed
   const contract = await contractFactory.deploy();
+  const deploymentTx = contract.deploymentTransaction();
 
-  console.log(contract);
+  if (!deploymentTx) {
+    throw new Error("Deployment transaction not found");
+  }
+
+  // // specify the number of block to wait for, here we wait for 1 block
+  const deploymentReceipt = await deploymentTx.wait(1);
+  console.log("Contract deployed at:", contract.target);
+  // Transaction response is what we get initially
+  console.log("Here is the deployment transaction response: ");
+  console.log(deploymentTx);
+  // if we wait for a block, we get a reciept
+  console.log("Here is the deployment reciept: ");
+  console.log(deploymentReceipt);
 }
 
 // Since main function is an async function
