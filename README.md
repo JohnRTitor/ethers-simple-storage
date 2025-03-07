@@ -20,6 +20,14 @@
 ```shell
 solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol
 ```
+### Starting a blockchain server
+It's a good idea to export your PRIVATE_KEY in a .envrc file (with chmod 600 permissions), instead of setting it in your code.
+The `-d` flag makes ganache deterministic, so each time same set of accounts and same set of private keys will be generated.
+This is ideal as we don't have to update the private keys in `.envrc` everytime we start our server.
+
+```shell
+ganache -d
+```
 
 ### Notes
 - Don't use `deno` with Ethers.js, it will fail, as it's made for Node.js. To make it
