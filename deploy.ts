@@ -57,6 +57,12 @@ async function main(): Promise<void> {
   // DOCS: https://docs.ethers.org/v6/api/contract/#BaseContract-getFunction
   let currentFavoriteNumber: number = await contract.getFunction("retrieve")();
   console.log(`Current favorite number: ${currentFavoriteNumber.toString()}`);
+
+  // here we call the store function with the argument "42"
+  // it is a good idea to pass variables to contract functions as strings
+  await contract.getFunction("store")("42");
+  currentFavoriteNumber = await contract.getFunction("retrieve")();
+  console.log(`Updated favorite number: ${currentFavoriteNumber.toString()}`);
 }
 
 // Since main function is an async function
