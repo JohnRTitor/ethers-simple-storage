@@ -1,13 +1,14 @@
 {
   "devDependencies": {
-    "@types/node": "^22.13.9",
-    "ethers": "^6.13.5",
-    "fs-extra": "^11.3.0",
-    "solc": "0.8.16",
-    "ts-node": "^10.9.2"
+    "solc": "0.8.16"
   },
   "dependencies": {
-    "ganache": "^7.9.2"
+    "dotenv": "^16.4.7",
+    "fs-extra": "^11.3.0",
+    "ganache": "^7.9.2",
+    "@types/node": "^22.13.9",
+    "ethers": "^6.13.5",
+    "ts-node": "^10.9.2"
   },
   "scripts": {
     "compile": "yarn solcjs --bin --abi --include-path node_modules/ --base-path . -o . SimpleStorage.sol"

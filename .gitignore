@@ -6,7 +6,7 @@ devenv.local.nix
 .direnv
 
 # To ensure private keys are not committed to the repository
-.envrc
+.env
 
 # pre-commit
 .pre-commit-config.yaml

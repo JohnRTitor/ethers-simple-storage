@@ -7,6 +7,7 @@ import {
 } from "ethers";
 import { Provider } from "ganache";
 import * as fs from "node:fs";
+import dotenv from "dotenv";
 // import required modules
 
 async function main(): Promise<void> {
@@ -20,6 +21,7 @@ async function main(): Promise<void> {
   / Reload the shell before typing `ts-node deploy.ts` by `source .envrc`
   */
 
+  dotenv.config();
   // check if the environment variables are set
   if (!process.env.RPC_URL || !process.env.PRIVATE_KEY) {
     throw new Error("Missing environment variables: RPC_URL or PRIVATE_KEY");
