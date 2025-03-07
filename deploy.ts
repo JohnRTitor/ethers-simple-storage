@@ -58,6 +58,8 @@ async function main(): Promise<void> {
   const contract: BaseContract = await contractFactory.deploy();
   await contract.waitForDeployment();
 
+  console.log(`Contract deployed at address: ${await contract.getAddress()}`);
+
   // call our retrieve() function in the SimpleStorage contract
   // DOCS: https://docs.ethers.org/v6/api/contract/#BaseContract-getFunction
   let currentFavoriteNumber: number = await contract.getFunction("retrieve")();
@@ -65,7 +67,8 @@ async function main(): Promise<void> {
 
   // here we call the store function with the argument "42"
   // it is a good idea to pass variables to contract functions as strings
-  await contract.getFunction("store")("42");
+  let tx = await contract.getFunction("store")("42");
+  await tx.wait(); // properly wait, or this might not work
   currentFavoriteNumber = await contract.getFunction("retrieve")();
   console.log(`Updated favorite number: ${currentFavoriteNumber.toString()}`);
 }
