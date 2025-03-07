@@ -18,6 +18,9 @@ async function main(): Promise<void> {
   / We can get both of these from Ganache or Hardhat
   / For security reasons, we should not hardcode the private key in the code
   / Set RPC_URL and PRIVATE_KEY in an envrc which only you have access to (`chmod 600 .envrc`)
+  / This is also bad however, you should use an encrypted wallet with Ethers.js if you are using a
+  / a blockchain that has real funds in it, though you shouldn't really have real funds in it.
+  / READ THE PLEDGE: https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/5
   / Reload the shell before typing `ts-node deploy.ts` by `source .envrc`
   */
 
